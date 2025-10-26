@@ -1,0 +1,139 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f3efef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Main container */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 80%;
+  max-width: 900px;
+  height: 70vh;
+  border: 0.15rem solid #000;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #ffff;
+}
+
+/* Left and Right sections*/
+.Left,
+.right {
+  flex: 1;
+  padding: 5%;
+} 
+
+/* LEFT SIDE */
+.Left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;  
+  border-right: 0.15em solid #000; /* Vertical line separator */
+ 
+}
+
+.Left h1 {
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+
+/* RIGHT SIDE */
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5% 8%;
+  grid-column: 2 / 3;
+}
+
+.right h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 2%;
+  margin: 2% 0 5% 0;
+  border: 0.1rem solid #000;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Buttons */
+button {
+  background-color: #7db8ff;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1/2rem;
+}
+
+.log-in-btn {
+  font-size: 1/2rem;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+}
+button:hover {
+  background-color: #2880e4;
+}
+
+/* Bottom text and staff login */
+.bottom {
+  width: 100%;
+  text-align: bottom;
+  margin-top: 5%;
+}
+
+.bottom h4 {
+  margin-bottom: 2%;
+  font-weight: 500;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
+
+  .left {
+    border-right: none;         /* remove vertical line */
+    border-bottom: 0.2rem solid #000; /* add horizontal line instead */
+  }
+
+  .right {
+    align-items: center;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 80%;
+  }
+}
