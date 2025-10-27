@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Reservation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <nav>
+            <h1>ResourceHub</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browseResources.html">Browse</a></li>
+                <li><a href="loginPage.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section section-dark" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&h=400&fit=crop') center/cover; padding: 4rem 2rem;">
+        <div class="fade-in" style="text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Make Your Reservation</h2>
+            <p style="font-size: 1.2rem; opacity: 0.95;">Complete your booking details below</p>
+        </div>
+    </section>
+
+    <!-- Page Section -->
+    <section class="section section-light">
+        <div style="display: grid; grid-template-columns: 1fr 400px; gap: 3rem; max-width: 1200px; margin: 0 auto;">
+            <!-- Reservation Form -->
+            <div class="form-container fade-in" style="margin: 0; background: transparent; box-shadow: none; padding: 0;">
+                <h1 class="form-title" style="text-align: left;">Make Reservation</h1>
+                
+                <form>
+                    <label>
+                        Resource Name
+                        <input type="text" value="Study Room A - Hall Building" disabled style="background: #f0f0f0;" />
+                    </label>
+                    
+                    <label>
+                        Date
+                        <input type="date" name="date" id="bookingDate" required />
+                    </label>
+                    
+                    <label>
+                        Time Slot
+                        <select name="timeSlot" id="timeSlot" required>
+                            <option value="">Select a time slot</option>
+                            <option value="9:00 AM - 11:00 AM">9:00 AM - 11:00 AM</option>
+                            <option value="11:00 AM - 1:00 PM">11:00 AM - 1:00 PM</option>
+                            <option value="2:00 PM - 4:00 PM">2:00 PM - 4:00 PM</option>
+                            <option value="4:00 PM - 6:00 PM">4:00 PM - 6:00 PM</option>
+                        </select>
+                    </label>
+                    
+                    <label>
+                        Purpose
+                        <textarea name="purpose" rows="4" placeholder="Describe the purpose of your booking..." required></textarea>
+                    </label>
+                    
+                    <a href="browseResources.html" style="text-decoration: none; display: block; margin-top: 2rem;">
+                        <button type="button" class="btn" style="width: 100%;">Confirm Reservation</button>
+                    </a>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="browseResources.html" style="color: var(--primary-blue); text-decoration: none;">← Back to Resources</a>
+                </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="fade-in">
+                <div class="booking-summary">
+                    <h3>Booking Summary</h3>
+                    <div class="booking-summary-item">
+                        <strong>Resource:</strong>
+                        <span>Study Room A</span>
+                    </div>
+                    <div class="booking-summary-item">
+                        <strong>Date:</strong>
+                        <span id="summaryDate">Select a date</span>
+                    </div>
+                    <div class="booking-summary-item">
+                        <strong>Time:</strong>
+                        <span id="summaryTime">Select a time slot</span>
+                    </div>
+                    <div class="booking-summary-item">
+                        <strong>Duration:</strong>
+                        <span>2 hours</span>
+                    </div>
+                    <div class="booking-summary-item">
+                        <strong>Capacity:</strong>
+                        <span>4 people</span>
+                    </div>
+                </div>
+
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                    <p style="margin: 0; font-size: 0.9rem;"><strong>Note:</strong> Booking history page to be implemented by team members.</p>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 2rem; border-radius: 1rem; margin-top: 2rem;">
+                    <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">Booking Guidelines</h4>
+                    <ul style="font-size: 0.95rem; line-height: 2;">
+                        <li>✓ Maximum booking duration: 4 hours</li>
+                        <li>✓ Cancel at least 24 hours before</li>
+                        <li>✓ Arrive on time or your booking may be cancelled</li>
+                        <li>✓ Report any issues immediately</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 ResourceHub - Concordia University. All rights reserved.</p>
+        <p>
+            <a href="#">About</a> | 
+            <a href="#">Help</a> | 
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,44 +1,85 @@
-<!DOCTYPE html >
-<html lang = "en">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title> Login page / Sign up - Student</title>
-   <meta name="viewport" content=""width=device-width, initial-scale="1", maximum-scale="1, user-scalable=no" >
-    <link rel="stylesheet" href="loginPage.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class = "container">
-    <div class = "Left">
-        <h1>Welcome!</br></h1> 
-        <a href="createAccount.html">
-        <button class="sign-up-btn">SIGN UP</button> 
-        </a> 
-        
+    <!-- Header -->
+    <header class="site-header">
+        <nav>
+            <h1>ResourceHub</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browseResources.html">Browse</a></li>
+                <li><a href="loginPage.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Split Screen Layout -->
+    <div class="split-screen">
+        <div class="split-left" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800&h=1200&fit=crop') center/cover;">
+            <div class="split-content fade-in">
+                <h2>Welcome Back</h2>
+                <p style="font-size: 1.2rem; margin-top: 1rem; opacity: 0.9;">
+                    Access your campus resources with ease. Book, manage, and track all your reservations in one place.
+                </p>
+                <div style="margin-top: 3rem;">
+                    <p style="opacity: 0.8;">Don't have an account?</p>
+                    <a href="createAccount.html" class="btn secondary-btn" style="margin-top: 1rem;">Create Account</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="split-right">
+            <div class="form-container fade-in">
+                <h1 class="form-title">Login as Student</h1>
+                
+                <form>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="student@concordia.ca" required />
+                    </label>
+                    
+                    <label>
+                        Password
+                        <input type="password" name="password" required />
+                    </label>
+                    
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember" />
+                        <label for="remember">Remember me</label>
+                    </div>
+                    
+                    <div class="forgot-password">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    
+                    <a href="browseResources.html" style="text-decoration: none; display: block;">
+                        <button type="button" class="btn" style="width: 100%;">Log In</button>
+                    </a>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="color: var(--text-light);">Staff member? <a href="loginPageStaff.html" style="color: var(--primary-blue);">Login as Staff</a></p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class = "right">
-        <h1>Log in Student</h1>
-            <label> 
-                 Email
-                <input type = "email" name = "email"/> <br/>
-                 Password
-                <input type = "password" name="password" size = "30"/> <br/>
-            </label>
-            <a href="myAccount.html">
-                <button class="log-in-btn">LOG IN</button>
-            </a>
-        <div class = "buttom">
-            <h4></br></br> Staff memeber? click here to log in </h4>
-            <a href = "loginPageStaff.html">
-             <button class="log-in-staff">LOG IN staff</button>
-            </a>
-        </div> 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 ResourceHub - Concordia University. All rights reserved.</p>
+        <p>
+            <a href="#">About</a> | 
+            <a href="#">Help</a> | 
+            <a href="#">Contact</a>
+        </p>
+    </footer>
 
-    </div>
-    
-</div>
-
-
+    <script src="app.js"></script>
 </body>
 </html>

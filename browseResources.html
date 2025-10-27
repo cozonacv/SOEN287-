@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Resources</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <nav>
+            <h1>ResourceHub</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="browseResources.html">Browse</a></li>
+                <li><a href="loginPage.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section section-dark" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1920&h=600&fit=crop') center/cover; padding: 6rem 2rem;">
+        <div class="fade-in" style="text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Browse Available Resources</h2>
+            <p style="font-size: 1.3rem; opacity: 0.95;">Find and book the perfect space for your needs</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="section section-light">
+        <div class="container" style="max-width: 1200px; margin: 0 auto;">
+            <div class="search-filter-bar fade-in">
+                <input type="text" class="search-input" placeholder="Search resources..." />
+                <select class="filter-select">
+                    <option value="">All Types</option>
+                    <option value="Study Room">Study Rooms</option>
+                    <option value="Lab">Computer Labs</option>
+                    <option value="Studio">Studios</option>
+                    <option value="Sports Facility">Sports Facilities</option>
+                    <option value="Equipment">Equipment</option>
+                </select>
+                <select class="sort-select">
+                    <option>Sort by: All</option>
+                    <option>Available First</option>
+                    <option>Capacity</option>
+                    <option>Location</option>
+                </select>
+            </div>
+            
+            <!-- Resources Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 2rem;">
+                <!-- Resource 1 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Study Room A</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 Hall Building, Room 305</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 4 people</p>
+                        </div>
+                        <span class="availability-badge available">Available</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Perfect for group work and studying</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 2 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Computer Lab</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 Webster Library, Floor 2</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 20 people</p>
+                        </div>
+                        <span class="availability-badge available">Available</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">High-end workstations with specialized software</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 3 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Multimedia Studio</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 EV Building, Room 2.609</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 3 people</p>
+                        </div>
+                        <span class="availability-badge some-available">Limited</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Professional video recording and podcast creation</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 4 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Basketball Court</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 Loyola Campus Gym</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 10 people</p>
+                        </div>
+                        <span class="availability-badge available">Available</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Full-size court for recreational play</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 5 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">3D Printer</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 EV Building, Room 1.807</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 1 person</p>
+                        </div>
+                        <span class="availability-badge occupied">Occupied</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">High-resolution 3D printing for prototypes</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center; opacity: 0.5; cursor: not-allowed;">Unavailable</a>
+                </div>
+                
+                <!-- Resource 6 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Study Room B</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 Webster Library, Floor 3</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 6 people</p>
+                        </div>
+                        <span class="availability-badge available">Available</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Large study room ideal for bigger groups</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 7 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Video Editing Suite</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 EV Building, Room 2.501</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 2 people</p>
+                        </div>
+                        <span class="availability-badge available">Available</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Professional video editing workstation</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+                
+                <!-- Resource 8 -->
+                <div class="resource-card fade-in">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Fitness Room</h3>
+                            <p style="color: var(--text-light); margin-bottom: 0.3rem;">📍 Loyola Campus, Gym Floor 1</p>
+                            <p style="color: var(--text-light);">👥 Capacity: 8 people</p>
+                        </div>
+                        <span class="availability-badge some-available">Limited</span>
+                    </div>
+                    <p style="margin-bottom: 1rem; color: var(--text-light);">Fully equipped fitness facility</p>
+                    <a href="reserve.html" class="btn" style="width: 100%; text-align: center;">Reserve →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 ResourceHub - Concordia University. All rights reserved.</p>
+        <p>
+            <a href="#">About</a> | 
+            <a href="#">Help</a> | 
+            <a href="#">Contact</a>
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
