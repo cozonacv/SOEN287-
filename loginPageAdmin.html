@@ -1,16 +1,15 @@
 <!DOCTYPE html >
 <html lang = "en">
-
 <head>
    <title> Login page / Sign up - Student</title>
+   <link rel="stylesheet" href="loginPageStaff.css">
    <meta name="viewport" content=""width=device-width, initial-scale="1", maximum-scale="1, user-scalable=no" >
-    <link rel="stylesheet" href="loginPage.css"/>
 </head>
 
 <body>
 <div class = "container">
     <div class = "Left">
-        <h1>Welcome!</br></h1> 
+        <h1>Welcome!</h1> 
         <a href="createAccount.html">
         <button class="sign-up-btn">SIGN UP</button> 
         </a> 
@@ -18,7 +17,7 @@
     </div>
 
     <div class = "right">
-        <h1>Log in Student</h1>
+        <h1>Log in Admin</h1>
             <label> 
                  Email
                 <input type = "email" name = "email"/> <br/>
@@ -28,22 +27,23 @@
             <a href="myProfile.html">
                 <button class="log-in-btn">LOG IN</button>
             </a>
-        <div class = "buttom">
+           <div class = "buttom">
+                <h4></br></br>Student? click here to log in </h4>
+                <a href = "loginPage.html">
+                 <button class="log-in-Student">Log in as student</button>
+                </a>
+             </div>
+             <div class = "buttom">
             <h4></br></br> Staff memeber? click here to log in </h4>
             <a href = "loginPageStaff.html">
              <button class="log-in-staff">LOG IN staff</button>
-            </a>
-        </div> 
-        <div class = "buttom">
-            <h4></br></br> Admin? click here to log in </h4>
-            <a href = "loginPageAdmin.html">
-             <button class="log-in-admin">LOG IN Admin</button>
             </a>
         </div> 
 
     </div>
     
 </div>
+
 
 
 </body>

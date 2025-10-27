@@ -3,10 +3,18 @@
 <head> 
     <title> Create account</title>
     <link rel="stylesheet" href="createAccount.css">
+    <meta name="viewport" content=""width=device-width, initial-scale="1", maximum-scale="1, user-scalable=no" >
+
 </head>
 <body>
     <div class = "container">
         <h1>Create Account</h1><br/>
+             <select name="UserType" size="1"  >
+                 <option selected="true"> Select</option>
+                <option > Student   </option>
+                <option > Staff</option>
+                <option > Admin</option>
+            </select>
         <label> 
                 Username
                 <input type = "username" name = "username"/><br/>
@@ -15,7 +23,7 @@
                  Password
                 <input type = "password" name="password" size = "30"/> <br/>
             </label>
-             <a href="myAccount.html">
+             <a href="myProfile.html">
                 <button class = "create-account">Create Account</button>
             </a>
         
