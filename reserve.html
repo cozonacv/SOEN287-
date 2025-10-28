@@ -4,215 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reserve</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Poppins", Arial, sans-serif;
-      background-color: #f3efef;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-
-    .menuBar {
-      width: 20%;
-      padding: 3%;
-    }
-
-    .menuBar h1 {
-      font-size: 1.8rem;
-      margin-bottom: 5%;
-    }
-
-    .menuBar a {
-      display: block;
-      background: transparent;
-      border: none;
-      color: #000;
-      font-weight: 600;
-      padding: 0.5em 1.5em;
-      border-radius: 6rem;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-    }
-
-    .menuBar a:hover,
-    .menuBar a.active {
-      background-color: #c5c7c9;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 900px;
-      min-height: 70vh;
-      border: 0.15rem solid #000;
-      border-radius: 1rem;
-      overflow: hidden;
-      background-color: #fff;
-      padding: 2rem;
-    }
-
-    .container h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .tabs {
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .tab {
-      text-decoration: none;
-      color: #000;
-      font-weight: 600;
-      font-size: 1.1rem;
-      padding: 0.5rem 0;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s ease;
-    }
-
-    .tab.active {
-      border-bottom: 3px solid #7db8ff;
-    }
-
-    .tab:hover {
-      border-bottom: 3px solid #2880e4;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border: 2px solid #000;
-    }
-
-    th,
-    td {
-      border: 1px solid #000;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #e0e0e0;
-      font-weight: 600;
-    }
-
-    td:first-child {
-      background-color: #f5f5f5;
-      font-weight: 600;
-    }
-
-    .available {
-      background-color: white;
-      cursor: pointer;
-    }
-
-    .available:hover {
-      background-color: #e3f2ff;
-    }
-
-    .booked {
-      background-color: #ffcdd2;
-      color: #c62828;
-      font-weight: bold;
-    }
-
-    .week-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .week-btn {
-      background: transparent;
-      border: 1px solid #000;
-      border-radius: 0.5rem;
-      padding: 0.3rem 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .week-btn:hover {
-      background-color: #e3f2ff;
-    }
-
-    #weekRange {
-      font-weight: 600;
-    }
-  </style>
+  <link rel="stylesheet" href="reserve.css">
 </head>
 <body>
+  <!-- Sidebar -->
   <div class="menuBar">
     <h1>My Account</h1>
     <a href="myProfile.html">My Profile</a>
     <a href="myReservations.html">My reservations</a>
     <a href="browseResources.html">Browse resources</a>
     <a href="reserve.html" class="active">Reserve</a>
-    <a href="signOut.html">sign out</a>
-    <a href="editResources.html">Edit Resources</a>
+    <a href="signOut.html">Sign out</a>
   </div>
 
+  <!-- Main content -->
   <div class="container">
     <h2>Reserve</h2>
 
+    <!-- Tabs -->
     <div class="tabs">
       <a href="#" class="tab active">Rooms</a>
       <a href="#" class="tab">Labs</a>
       <a href="#" class="tab">Equipment</a>
     </div>
 
+    <!-- Week navigation -->
     <div class="week-nav">
       <button class="week-btn" id="prevWeek">← Previous</button>
       <span id="weekRange"></span>
       <button class="week-btn" id="nextWeek">Next →</button>
     </div>
 
+    <!-- Schedule table -->
     <table id="scheduleTable">
       <thead>
         <tr>
           <th>Time</th>
-          <!-- Dates will be inserted dynamically here -->
+          <!-- Days added dynamically -->
         </tr>
       </thead>
       <tbody id="timeSlots"></tbody>
     </table>
+
+    <!-- Confirm button -->
+    <div class="confirmContainer">
+      <button class="confirmButton" onclick="confirmReservation()">Confirm Reservation</button>
+    </div>
   </div>
 
   <script>
+    // Elements
     const scheduleTable = document.getElementById("scheduleTable");
     const weekRange = document.getElementById("weekRange");
     const timeSlots = document.getElementById("timeSlots");
 
-    const times = [
-      "9:00",
-      "10:00",
-      "11:00",
-      "12:00",
-      "13:00",
-      "14:00",
-      "15:00",
-      "16:00",
-      "17:00",
-      "18:00",
-      "19:00",
-    ];
+    // Time slots
+    const times = ["9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"];
 
+    // Current week Monday
     let currentMonday = getMonday(new Date());
 
+    // Get Monday of a week
     function getMonday(date) {
       const d = new Date(date);
       const day = d.getDay();
@@ -220,19 +72,14 @@
       return new Date(d.setDate(diff));
     }
 
-    function formatDate(date) {
-      const day = String(date.getDate()).padStart(2, "0");
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      return `${day}/${month}`;
-    }
-
+    // Render schedule for the week
     function renderWeek(startDate) {
       const headerRow = scheduleTable.querySelector("thead tr");
       headerRow.innerHTML = "<th>Time</th>";
 
       const weekDates = [];
-      const endDate = new Date(startDate);
 
+      // Add days to header
       for (let i = 0; i < 7; i++) {
         const d = new Date(startDate);
         d.setDate(d.getDate() + i);
@@ -245,16 +92,16 @@
         const th = document.createElement("th");
         th.textContent = `${dayName} ${dayNum} ${month}`;
         headerRow.appendChild(th);
-
-        endDate.setDate(startDate.getDate() + i);
       }
 
-      const startFormatted = `${weekDates[0].toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
-      const endFormatted = `${weekDates[6].toLocaleDateString("en-US", { month: "short", day: "numeric" })}`;
+      // Update week range
+      const startFormatted = weekDates[0].toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      const endFormatted = weekDates[6].toLocaleDateString("en-US", { month: "short", day: "numeric" });
       weekRange.textContent = `${startFormatted} - ${endFormatted}`;
 
+      // Add time slot rows
       timeSlots.innerHTML = "";
-      times.forEach((time) => {
+      times.forEach(time => {
         const row = document.createElement("tr");
         const timeCell = document.createElement("td");
         timeCell.textContent = time;
@@ -263,9 +110,12 @@
         for (let i = 0; i < 7; i++) {
           const td = document.createElement("td");
           td.classList.add("available");
+
+          // Toggle selection
           td.addEventListener("click", () => {
-            alert(`Reserved ${time} on ${weekDates[i].toDateString()}`);
+            td.classList.toggle("selected");
           });
+
           row.appendChild(td);
         }
 
@@ -273,17 +123,30 @@
       });
     }
 
+    // Previous week button
     document.getElementById("prevWeek").addEventListener("click", () => {
       currentMonday.setDate(currentMonday.getDate() - 7);
       renderWeek(currentMonday);
     });
 
+    // Next week button
     document.getElementById("nextWeek").addEventListener("click", () => {
       currentMonday.setDate(currentMonday.getDate() + 7);
       renderWeek(currentMonday);
     });
 
+    // Initial render
     renderWeek(currentMonday);
+
+    // Confirm reservation
+    function confirmReservation() {
+      const selectedSlots = document.querySelectorAll(".selected");
+      if (selectedSlots.length === 0) {
+        alert("Please select at least one time slot.");
+        return;
+      }
+      alert(`You have confirmed ${selectedSlots.length} reservation(s)!`);
+    }
   </script>
 </body>
 </html>

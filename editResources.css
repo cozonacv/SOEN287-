@@ -1,0 +1,174 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f3efef;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Sidebar Menu */
+.menuBar {
+  width: 20%;
+  padding: 3%;
+}
+
+.menuBar h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+}
+
+.menuBar a {
+  display: block;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.menuBar a:hover,
+.menuBar a.active {
+  background-color: #c5c7c9;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  min-height: 70vh;
+  border: 0.15rem solid #000;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+/* Products Section */
+.productsSection {
+  margin-bottom: 3rem;
+}
+
+.productsSection h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Product Grid */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Product Card */
+.productCard {
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.productCard:hover {
+  background-color: #f5f5f5;
+}
+
+/* Product Placeholder */
+.productCard .placeholder {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(135deg, #e0e0e0 25%, transparent 25%),
+              linear-gradient(225deg, #e0e0e0 25%, transparent 25%),
+              linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+              linear-gradient(315deg, #e0e0e0 25%, #fff 25%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+}
+
+.productCard p {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Adding Product Button */
+.addProductBtn {
+  background-color: #7db8ff;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.addProductBtn:hover {
+  background-color: #2880e4;
+}
+
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .menuBar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+  }
+
+  .menuBar h1 {
+    width: 100%;
+  }
+
+  .menuBar a {
+    margin: 0.2rem;
+    padding: 0.3em 1em;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
