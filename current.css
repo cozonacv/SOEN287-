@@ -1,0 +1,135 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f3efef;
+  grid-template-columns: 1fr 2fr 3fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.menuBar{
+    width: 20%;
+    padding: 3%;
+    align-self: flex-start;
+}
+
+.menuBar h1{
+    font-size: 1.8rem;
+    margin-bottom: 5%;
+}
+
+.menuBar .myProfile{
+    background-color: #c5c7c9;
+  border:0.1rem #000;
+} 
+
+.menuBar button{
+background: transparent;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+
+.menuBar button:hover {
+  background-color: #c5c7c9;
+  border:0.1rem #000;
+}
+
+
+.container{
+
+  width: 100%;
+  max-width: 900px;
+  height: 70vh;
+  border: 0.15rem solid #000;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #ffff;
+}
+
+.container h2{
+    font-size: 1.8rem;
+    margin-left: 3%;
+    margin-top: 3%;
+}
+
+
+.container label{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-left;
+    align-items: flex-start;
+    margin-left: 7%;
+     margin-top: 10%;
+     font-size: 1rem;
+}
+
+.container input{
+    width: 90%;
+    max-width: 25em;
+}
+
+.Modify {
+    background-color: #ef8080;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1/2rem;
+  margin-left: 7%;
+     margin-top: 10%;
+}
+
+.Modify:hover {
+  background-color: #ffffff;
+}
+
+
+.table-box {
+  border: 0.15rem solid #ffffff;
+  border-radius: 0.5rem;     
+  padding: 1rem;             
+  background-color: #c6e9f3;    
+  width: 90%;               
+  margin: 2% auto;    
+   max-height: 50vh; 
+  overflow-y: auto; 
+  overflow-x: hidden;         
+}
+
+
+.table-box table {
+  width: 100%;
+  border-collapse: collapse;  
+}
+
+.table-box th, .table-box td {
+  padding: 10px;
+  border: 0.1rem solid #000000;
+  text-align: center;
+  
+}
+
+.table-box th {
+  background-color: #8ff3b7;
+  font-style: italic;
+  
+}
+
