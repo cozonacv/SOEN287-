@@ -1,0 +1,216 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #f3efef;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Sidebar Menu */
+.menuBar {
+  width: 20%;
+  padding: 3%;
+}
+
+.menuBar h1 {
+  font-size: 1.8rem;
+  margin-bottom: 5%;
+}
+
+.menuBar a {
+  display: block;
+  background: transparent;
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 0.5em 1.5em;
+  border-radius: 6rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+}
+
+.menuBar a:hover,
+.menuBar a.active {
+  background-color: #c5c7c9;
+  border: 0.1rem #000;
+}
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: 900px;
+  min-height: 70vh;
+  border: 0.15rem solid #000;
+  border-radius: 1rem;
+  background-color: #fff;
+  padding: 2%;
+}
+
+.container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tab.active {
+  border-bottom: 3px solid #7db8ff;
+}
+
+.tab:hover {
+  border-bottom: 3px solid #2880e4;
+}
+
+/* Week Navigation */
+.week-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.week-btn {
+  background: transparent;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.week-btn:hover {
+  background-color: #e3f2ff;
+}
+
+#weekRange {
+  font-weight: 600;
+}
+
+/* Schedule Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #000;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #e0e0e0;
+  font-weight: 600;
+}
+
+td:first-child {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.available {
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.available:hover {
+  background-color: #e3f2ff;
+}
+
+.available.selected {
+  background-color: #7db8ff;
+  color: #fff;
+}
+
+.booked {
+  background-color: #ffcdd2;
+  color: #c62828;
+  font-weight: bold;
+}
+
+/* Confirm Button */
+.confirmContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.confirmButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.confirmButton:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .menuBar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+  }
+
+  .menuBar h1 {
+    width: 100%;
+  }
+
+  .menuBar a {
+    margin: 0.2rem;
+    padding: 0.3em 1em;
+    font-size: 0.9rem;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+}

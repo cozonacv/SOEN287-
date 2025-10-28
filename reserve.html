@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve</title>
+  <link rel="stylesheet" href="reserve.css">
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="menuBar">
+    <h1>My Account</h1>
+    <a href="myProfile.html">My Profile</a>
+    <a href="myReservations.html">My reservations</a>
+    <a href="browseResources.html">Browse resources</a>
+    <a href="reserve.html" class="active">Reserve</a>
+    <a href="signOut.html">Sign out</a>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <h2>Reserve</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <a href="#" class="tab active">Rooms</a>
+      <a href="#" class="tab">Labs</a>
+      <a href="#" class="tab">Equipment</a>
+    </div>
+
+    <!-- Week navigation -->
+    <div class="week-nav">
+      <button class="week-btn" id="prevWeek">← Previous</button>
+      <span id="weekRange"></span>
+      <button class="week-btn" id="nextWeek">Next →</button>
+    </div>
+
+    <!-- Schedule table -->
+    <table id="scheduleTable">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <!-- Days added dynamically -->
+        </tr>
+      </thead>
+      <tbody id="timeSlots"></tbody>
+    </table>
+
+    <!-- Confirm button -->
+    <div class="confirmContainer">
+      <button class="confirmButton" onclick="confirmReservation()">Confirm Reservation</button>
+    </div>
+  </div>
+
+  <script>
+    // Elements
+    const scheduleTable = document.getElementById("scheduleTable");
+    const weekRange = document.getElementById("weekRange");
+    const timeSlots = document.getElementById("timeSlots");
+
+    // Time slots
+    const times = ["9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00"];
+
+    // Current week Monday
+    let currentMonday = getMonday(new Date());
+
+    // Get Monday of a week
+    function getMonday(date) {
+      const d = new Date(date);
+      const day = d.getDay();
+      const diff = d.getDate() - day + (day === 0 ? -6 : 1);
+      return new Date(d.setDate(diff));
+    }
+
+    // Render schedule for the week
+    function renderWeek(startDate) {
+      const headerRow = scheduleTable.querySelector("thead tr");
+      headerRow.innerHTML = "<th>Time</th>";
+
+      const weekDates = [];
+
+      // Add days to header
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(startDate);
+        d.setDate(d.getDate() + i);
+        weekDates.push(d);
+
+        const dayName = d.toLocaleDateString("en-US", { weekday: "short" });
+        const dayNum = d.getDate();
+        const month = d.toLocaleDateString("en-US", { month: "short" });
+
+        const th = document.createElement("th");
+        th.textContent = `${dayName} ${dayNum} ${month}`;
+        headerRow.appendChild(th);
+      }
+
+      // Update week range
+      const startFormatted = weekDates[0].toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      const endFormatted = weekDates[6].toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      weekRange.textContent = `${startFormatted} - ${endFormatted}`;
+
+      // Add time slot rows
+      timeSlots.innerHTML = "";
+      times.forEach(time => {
+        const row = document.createElement("tr");
+        const timeCell = document.createElement("td");
+        timeCell.textContent = time;
+        row.appendChild(timeCell);
+
+        for (let i = 0; i < 7; i++) {
+          const td = document.createElement("td");
+          td.classList.add("available");
+
+          // Toggle selection
+          td.addEventListener("click", () => {
+            td.classList.toggle("selected");
+          });
+
+          row.appendChild(td);
+        }
+
+        timeSlots.appendChild(row);
+      });
+    }
+
+    // Previous week button
+    document.getElementById("prevWeek").addEventListener("click", () => {
+      currentMonday.setDate(currentMonday.getDate() - 7);
+      renderWeek(currentMonday);
+    });
+
+    // Next week button
+    document.getElementById("nextWeek").addEventListener("click", () => {
+      currentMonday.setDate(currentMonday.getDate() + 7);
+      renderWeek(currentMonday);
+    });
+
+    // Initial render
+    renderWeek(currentMonday);
+
+    // Confirm reservation
+    function confirmReservation() {
+      const selectedSlots = document.querySelectorAll(".selected");
+      if (selectedSlots.length === 0) {
+        alert("Please select at least one time slot.");
+        return;
+      }
+      alert(`You have confirmed ${selectedSlots.length} reservation(s)!`);
+    }
+  </script>
+</body>
+</html>
